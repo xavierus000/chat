@@ -6,7 +6,7 @@ var cors = require('cors')
 
 app.use(cors());
 
-app.use(express.static(__dirname + '/public/static'));
+app.use(express.static(__dirname + '/dist/static'));
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/dist/index.html');
