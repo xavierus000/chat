@@ -1,4 +1,4 @@
-const socket = io("https://fast-spire-11802.herokuapp.com/:3111");
+const socket = io("https://fast-spire-11802.herokuapp.com/");
 
 export default {
   name: 'Chat',
