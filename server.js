@@ -3,7 +3,7 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist/public'));
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/dist/index.html');
@@ -31,3 +31,5 @@ io.on('connection', function (socket) {
 });
 
 http.listen(process.env.PORT || 3111)
+
+console.log(__dirname + '/dist')
