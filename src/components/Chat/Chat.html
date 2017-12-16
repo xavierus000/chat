@@ -2,47 +2,77 @@
     <div class="navbar-fixed">
         <nav class="grey darken-4">
             <div class="nav-wrapper">
-            <a href="#" class="brand-logo"><span class="verde-cerebro-fonte">C</span>erebro</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>
-                <a href="sass.html">Sass</a>
-                </li>
-                <li>
-                <a href="badges.html">Components</a>
-                </li>
-                <li>
-                <a href="collapsible.html">JavaScript</a>
-                </li>
-            </ul>
+                <a href="#" class="brand-logo"><span class="verde-cerebro-fonte">C</span>erebro</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="sass.html">Sass</a>
+                    </li>
+                    <li>
+                        <a href="badges.html">Components</a>
+                    </li>
+                    <li>
+                        <a href="collapsible.html">JavaScript</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </div>
-    <div class="row row-msgs">
-        <div class="col s11 offset-s1">
-            <div class="verde-cerebro mensagem-div z-depth-2">Olá como vai vc? Meu nome é Gabriel</div>
+    <div class="identificacao-div">
+        <h4>Digite seu nome de usuário:</h4><br>
+        <div class="row">
+            <div class="input-field col s6 offset-s3">
+                <input type="text" v-model="dados.usuarioLogado" id="usuario-logado" v-on:keyup.enter="conectar">
+                <label for="usuario-logado">Insira seu nome aqui</label>
+            </div>
         </div>
-        <div class="col s11">
-            <div class="grey darken-4 mensagem-div z-depth-2">Olá como vai vc? Meu nome é Gabriel</div>                
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect verde-cerebro" v-on:click="conectar">CONFIRMAR</button>
+            </div>
         </div>
     </div>
-    <div class="row">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque suscipit arcu eu consectetur accumsan. Cras eget mauris vel massa sodales mollis. Nunc quis enim tellus. Mauris sollicitudin posuere euismod. Quisque at odio et est vestibulum maximus. Pellentesque ac eleifend risus, ut accumsan justo. Vivamus quam nulla, porta quis congue iaculis, porta at enim. Integer ultricies euismod sollicitudin. Quisque neque nisi, pellentesque ut condimentum nec, gravida ut ex. Quisque dui turpis, fermentum sed eros eu, ultricies consectetur quam. Proin rutrum leo quis metus tristique faucibus. Phasellus ipsum elit, semper a egestas quis, venenatis ac metus. Ut maximus sagittis metus at sagittis. Curabitur porta, sapien elementum laoreet eleifend, turpis neque cursus risus, ut dapibus mauris nisl a nibh. Etiam urna magna, mollis non neque nec, dignissim porttitor augue. Ut convallis nulla ac ante tempor, et faucibus tellus dapibus.
-            
-            Sed consectetur convallis luctus. Integer urna ante, consectetur a interdum eu, commodo non mi. Ut iaculis, nulla vitae hendrerit aliquam, augue lacus porta arcu, vel ullamcorper mi felis sollicitudin tortor. Praesent pulvinar arcu ac erat accumsan lacinia. Ut luctus odio tortor, accumsan faucibus sapien elementum id. Sed finibus mattis libero, in ornare sem aliquet non. Vestibulum rhoncus lorem non rutrum placerat. Pellentesque imperdiet sed nisi at ornare. Sed ac orci molestie, congue quam eget, rhoncus urna. In pretium sagittis neque id tincidunt. Nullam luctus vulputate metus. Etiam scelerisque, eros in euismod vestibulum, sapien nulla mattis quam, ac egestas dolor dui ac turpis.
-            
-            Nunc tincidunt sem tellus, eget pharetra lacus venenatis eget. Vivamus vehicula rutrum cursus. Cras sollicitudin nibh lectus, ac lobortis libero rutrum tristique. Vestibulum volutpat luctus diam, vel pulvinar urna elementum ut. Etiam pellentesque a sapien et luctus. Maecenas vel erat sit amet ligula euismod cursus a id enim. Duis vel nunc nec diam eleifend facilisis. Aenean vitae lectus neque. Aliquam euismod ante id elementum sollicitudin. Morbi blandit magna dui, vitae mattis mi mollis a.
-            
-            Mauris quis lorem mi. Vestibulum tempus diam enim, sit amet dignissim massa fermentum sit amet. Vestibulum molestie ullamcorper pulvinar. Sed dapibus semper nisi, vel pellentesque dolor pellentesque vitae. Pellentesque hendrerit viverra erat, vitae pharetra ipsum sagittis vitae. Vestibulum eleifend tortor orci, efficitur facilisis nisi porta eget. Suspendisse dui nunc, accumsan in quam nec, bibendum tempor leo. Mauris mauris metus, vehicula quis vehicula sed, euismod vitae leo. Sed et enim eros. Integer a iaculis ante. Duis at pretium est, vitae gravida risus. Proin pharetra hendrerit laoreet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc imperdiet ultricies tortor eu sagittis. Vestibulum tristique diam ut nunc lacinia, sit amet hendrerit nibh scelerisque. Aliquam erat libero, consectetur id mollis vulputate, volutpat at enim.
-            
-            Morbi vel est sed purus euismod consequat. Sed lacus leo, pharetra eu felis non, consequat posuere elit. Proin in nulla volutpat, dictum nunc quis, tempus sapien. Morbi sed tortor odio. Integer vulputate nisl eu metus bibendum, quis cursus enim fermentum. Proin a venenatis velit. Integer purus tortor, laoreet ac velit et, elementum sagittis dui.
+    <div id="chat-wrapper">
+        <div class="row row-msgs" v-for="mensagem in mensagens">
+            <div class="col s11 offset-s1" v-if="mensagem.msg.usuarioLogado == dados.usuarioLogado">
+                <div class="verde-cerebro mensagem-div z-depth-2">
+                    <div class="row">
+                        <div class="col s10">
+                            <span class="mensagem-span">{{mensagem.msg.mensagemDigitada}}</span>
+                        </div>
+                        <div class="col s2">
+                            {{mensagem.hora}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s11" v-else>
+                <div class="grey darken-4 mensagem-div z-depth-2">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col s12">
+                                <span class="verde-cerebro-fonte">{{mensagem.msg.usuarioLogado}}</span>
+                            </div>
+                        </div>
+                        <div class="col s10">
+                            <span class="mensagem-span">{{mensagem.msg.mensagemDigitada}}</span>
+                        </div>
+                        <div class="col s2">
+                            {{mensagem.hora}}
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
     </div>
+    <div style="position:relative; height:77px;">
     <div class="row grey darken-4 row-enviar-msg">
         <div class="input-field col s9">
-            <input type="text" id="txt-mensagem">
+            <input type="text" id="txt-mensagem" v-model="dados.mensagemDigitada" v-on:keyup.enter="enviarMensagem">
             <label for="txt-mensagem">Digite sua mensagem</label>
         </div>
         <div class="col s1">
-            <a class="btn-floating btn-large waves-effect waves-light btn-enviar verde-cerebro"><i class="material-icons">send</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light btn-enviar verde-cerebro" v-on:click="enviarMensagem"><i class="material-icons">send</i></a>
         </div>
+    </div>
     </div>
 </div>

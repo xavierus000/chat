@@ -1,6 +1,11 @@
-body
+body, html
 {
     background-color: #eaeaea;
+}
+#Chat
+{
+    height: 100%;
+    width: 100%;
 }
 .btn-enviar
 {
@@ -106,5 +111,28 @@ textarea:before:focus {
     border-bottom: 1px solid red!important;
     box-shadow: 0 1px 0 0 red!important;
 }
+.identificacao-div
+{
+    padding-top: 80px;
+    color: #1ed760;
+    text-align: center;
+    background-color:black;
+    opacity: .9;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+}
 
-
+#chat-wrapper
+{
+    /* overflow-y: scroll; */
+    height: 79.5%;
+    width: 100%;
+    /* position: fixed; */
+}
+.mensagem-span
+{
+    overflow-wrap: break-word;
+}
