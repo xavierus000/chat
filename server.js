@@ -29,3 +29,4 @@ io.on('connection', function (socket) {
 
 http.listen(process.env.PORT || 3111)
 
+console.log(__dirname + '/dist/index.html')
