@@ -27,6 +27,5 @@ io.on('connection', function (socket) {
   });
 });
 
-http.listen(3111, function () {
-  console.log('listening on *:3111');
-});
+http.listen(process.env.PORT || 3111)
+
