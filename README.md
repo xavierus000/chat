@@ -1,4 +1,4 @@
-# chat
+# Chat
 
 > A Vue.js project
 
@@ -19,3 +19,5 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+First app made with Vue.js and Node.js hosted in Heroku clouding service
